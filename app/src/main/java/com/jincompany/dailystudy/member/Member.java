@@ -1,20 +1,33 @@
 package com.jincompany.dailystudy.member;
 
+import android.content.Context;
+
+import com.jincompany.dailystudy.DBmanagerService.DBManager;
 import com.jincompany.dailystudy.member.DTO.MemberDTO;
+
+import java.util.List;
 
 /**
  * Created by Armor on 2015-11-19.
  */
 public class Member {
-    MemberDTO memberDTO= new MemberDTO();
 
-    public boolean isMember(String id){
+    MemberDTO memberDTO = new MemberDTO();
+    private final DBManager dbManager;
 
-        return true;
+    public Member(Context context) {
+        dbManager = new DBManager(context, "MEMBER.db", null, 1);
     }
 
-    public boolean isPassPassword(String id,String password){
+    public boolean isLoginCheck(String id, String password) {
+        List<MemberDTO> l = dbManager.selectUserInfoWithUserId("MEMBER_LIST", id);
 
-        return true;
+        for (MemberDTO d : l) {
+            if (d.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
     }
+
 }

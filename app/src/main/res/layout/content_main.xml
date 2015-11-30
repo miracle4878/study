@@ -28,7 +28,10 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:password="false"
-        android:hint="id or email" />
+        android:hint="id or email"
+        android:maxLines="1"
+        android:singleLine="true"
+        />
 
     <EditText
         android:layout_width="wrap_content"
@@ -40,7 +43,10 @@
         android:layout_alignLeft="@+id/userId"
         android:layout_alignStart="@+id/userId"
         android:password="true"
-        android:hint="password" />
+        android:hint="password"
+        android:maxLines="1"
+        android:singleLine="true"
+        />
 
     <Button
         android:layout_width="wrap_content"
