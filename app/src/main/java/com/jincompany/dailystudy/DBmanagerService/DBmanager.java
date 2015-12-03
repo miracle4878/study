@@ -54,7 +54,7 @@ public class DBManager extends SQLiteOpenHelper {
 
         List MemberDTO_list = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery("select * from " + table_name + " where user_id =" + user_id, null);
+        Cursor cursor = db.rawQuery("select * from " + table_name + " where user_id = '" + user_id + "'", null);
         while (cursor.moveToNext()) {
             MemberDTO memberDTO = new MemberDTO();
             memberDTO.setId(cursor.getString(1));

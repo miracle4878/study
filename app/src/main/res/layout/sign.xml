@@ -35,4 +35,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:onClick="sign_clicked" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:id="@+id/back"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:onClick="back_clicked" />
 </LinearLayout>

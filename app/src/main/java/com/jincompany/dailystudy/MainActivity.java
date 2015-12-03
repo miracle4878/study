@@ -37,30 +37,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button enter_btn = (Button) findViewById(R.id.enter);
+        enter_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userId = ((EditText) findViewById(R.id.userId)).getText().toString();
+                String userPassword = ((EditText) findViewById(R.id.userPassword)).getText().toString();
+                Context context = getApplicationContext();
 
-    }
+                boolean validate = true;
 
-    public void enterClicked(View view) {
-        String userId = ((EditText) findViewById(R.id.userId)).getText().toString();
-        String userPassword = ((EditText) findViewById(R.id.userPassword)).getText().toString();
-        Context context = getApplicationContext();
-        boolean validate = true;
-
-        if (userId.isEmpty()) {
-            Toast.makeText(context, "input id", Toast.LENGTH_SHORT).show();
-            validate = false;
-        }
-        if (userPassword.isEmpty()) {
-            Toast.makeText(context, "input password", Toast.LENGTH_SHORT).show();
-            validate = false;
-        }
-        if (validate) {
-            Member member_info = new Member(context);
-            if (member_info.isLoginCheck(userId, userPassword)) {
-                Toast.makeText(context, "greeting", Toast.LENGTH_SHORT).show();
+                if (userId.isEmpty()) {
+                    Toast.makeText(context, "input id", Toast.LENGTH_SHORT).show();
+                    validate = false;
+                }
+                if (userPassword.isEmpty()) {
+                    Toast.makeText(context, "input password", Toast.LENGTH_SHORT).show();
+                    validate = false;
+                }
+                if (validate) {
+                    Member member_info = new Member(context);
+                    if (member_info.isLoginCheck(userId, userPassword)) {
+                        Toast.makeText(context, "greeting", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(context, "join us", Toast.LENGTH_SHORT).show();
+                }
             }
-            Toast.makeText(context, "join us", Toast.LENGTH_SHORT).show();
-        }
+        });
     }
 
     public void joinClicked(View view) {
