@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jincompany.dailystudy.member.Member;
+import com.jincompany.dailystudy.view.MainPage;
 import com.jincompany.dailystudy.view.Sign;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     Member member_info = new Member(context);
                     if (member_info.isLoginCheck(userId, userPassword)) {
                         Toast.makeText(context, "greeting", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, MainPage.class));
+                    } else {
+                        Toast.makeText(context, "join us", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "join us", Toast.LENGTH_SHORT).show();
                 }
             }
         });

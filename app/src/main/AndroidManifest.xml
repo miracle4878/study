@@ -22,6 +22,10 @@
             android:name=".view.Sign"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".view.MainPage"
+            android:label="household accounts">
+        </activity>
     </application>
 
 </manifest>
