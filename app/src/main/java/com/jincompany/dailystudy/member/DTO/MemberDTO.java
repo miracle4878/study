@@ -4,12 +4,12 @@ package com.jincompany.dailystudy.member.DTO;
  * Created by Armor on 2015-11-19.
  */
 public class MemberDTO {
-    String id;
-    String password;
-    String name;
-    String age;
-    String joinDate;
-    String email;
+    private String id;
+    private String password;
+    private String name;
+    private String age;
+    private String joinDate;
+    private String email;
 
     public String getId() {
         return id;

@@ -10,12 +10,12 @@ import java.util.List;
 /**
  * Created by Armor on 2015-11-19.
  */
-public class Member {
+public class MemberService {
 
     MemberDTO memberDTO = new MemberDTO();
     private final DBManager dbManager;
 
-    public Member(Context context) {
+    public MemberService(Context context) {
         dbManager = new DBManager(context, "MEMBER.db", null, 1);
     }
 

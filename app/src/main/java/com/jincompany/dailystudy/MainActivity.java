@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jincompany.dailystudy.member.Member;
+import com.jincompany.dailystudy.member.MemberService;
 import com.jincompany.dailystudy.view.MainPage;
 import com.jincompany.dailystudy.view.Sign;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     validate = false;
                 }
                 if (validate) {
-                    Member member_info = new Member(context);
+                    MemberService member_info = new MemberService(context);
                     if (member_info.isLoginCheck(userId, userPassword)) {
                         Toast.makeText(context, "greeting", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this, MainPage.class));

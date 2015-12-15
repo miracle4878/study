@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2015.12.09"
+        android:id="@+id/date_text"
+        android:hint="2015.12.19"
+        android:elegantTextHeight="false"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:hint="a monthly budget"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:layout_below="@+id/date_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total expenditure :"
+        android:id="@+id/expenditure"
+        android:elegantTextHeight="false"
+        android:textSize="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/expenditure_var"
+        android:layout_alignBottom="@+id/expenditure"
+        android:layout_toRightOf="@+id/expenditure"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="25dp"
+        android:layout_marginRight="10dp"
+        android:text="2,000,000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rest of the budget :"
+        android:id="@+id/rest_of_budget"
+        android:textSize="25dp"
+        android:layout_below="@+id/expenditure"
+        android:layout_alignLeft="@+id/expenditure"
+        android:layout_alignStart="@+id/expenditure"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rest_of_budget_var"
+        android:textSize="25dp"
+        android:text="2,000,000"
+        android:layout_alignBottom="@+id/rest_of_budget"
+        android:layout_alignLeft="@+id/expenditure_var"
+        android:layout_alignStart="@+id/expenditure_var"
+        android:layout_alignRight="@+id/expenditure_var"
+        android:layout_alignEnd="@+id/expenditure_var" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="check a breakdown of expenditure"
+        android:id="@+id/check_expenditure_bt"
+        android:layout_below="@+id/rest_of_budget"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:onClick="checkExpenditureBtClicked" />
+
+</RelativeLayout>
