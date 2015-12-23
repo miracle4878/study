@@ -12,7 +12,6 @@ import java.util.List;
  */
 public class MemberService {
 
-    MemberDTO memberDTO = new MemberDTO();
     private final DBManager dbManager;
 
     public MemberService(Context context) {

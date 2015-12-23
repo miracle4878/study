@@ -2,47 +2,36 @@ package com.jincompany.dailystudy.DBmanagerService.smsDBManager;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.jincompany.dailystudy.sms.DTO.smsDTO;
+import android.net.Uri;
+
+import com.jincompany.dailystudy.sms.DTO.SmsDTO;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Armor on 2015-12-15.
  */
-public class smsDBManager extends SQLiteOpenHelper {
+public class SmsDBManager {
 
-    public smsDBManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    Cursor cur;
+
+    public SmsDBManager(String smsURI, Context context) {
+        cur = context.getContentResolver().query(Uri.parse(smsURI), null, null, null, null);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    public List<SmsDTO> selectSMSData() {
+        List<SmsDTO> smsDTO_list = new ArrayList();
 
-    }
+        while (cur.moveToNext()) {
+            SmsDTO smsDTO = new SmsDTO();
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
-
-    public List<smsDTO> selectSMSData() {
-        SQLiteDatabase db = getReadableDatabase();
-
-        List smsDTO_list = new ArrayList<>();
-
-        Cursor cursor = db.rawQuery("select address, date_sent, body from smsService;", null);
-        while (cursor.moveToNext()) {
-            smsDTO smsDTO = new smsDTO();
-
-            smsDTO.setAddress(cursor.getString(1));
-            smsDTO.setDate_sent(cursor.getInt(2));
-            smsDTO.setContent(cursor.getString(3));
+            smsDTO.setAddress(cur.getString(2));
+            smsDTO.setDate_sent(cur.getInt(5));
+            smsDTO.setContent(cur.getString(12));
 
             smsDTO_list.add(smsDTO);
         }
-
         return smsDTO_list;
     }
 }

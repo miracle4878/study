@@ -3,7 +3,7 @@ package com.jincompany.dailystudy.sms.DTO;
 /**
  * Created by Armor on 2015-12-16.
  */
-public class smsDTO {
+public class SmsDTO {
     private String address;   //발신번호
     private int date_sent; //수신일
     private String content;   //문자 내용
